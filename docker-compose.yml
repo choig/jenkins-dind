@@ -29,3 +29,15 @@ services:
             - ./vols-rw/workspace:/workspace
             - ./vols-rw/var/run:/var/run
 
+    gitlab:
+        image: gitlab/gitlab-ce:latest
+        ports:
+            - "9443:443"
+            - "9080:80"
+            - "9022:22"
+        volumes:
+            - ./vols-rw/gitlab/config:/etc/gitlab
+            - ./vols-rw/gitlab/logs:/var/log/gitlab
+            - ./vols-rw/gitlab/data:/var/opt/gitlab
+
+  
