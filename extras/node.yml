@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+    node-ubuntu:
+        build:
+            context: ./services/jenkins-node-ubuntu
+            dockerfile: Dockerfile
+        volumes:
+            - ./vols-rw/workspace:/workspace
+            - ./vols-rw/var/run:/var/run
+        depends_on:
+            - jenkins
+            - dind
