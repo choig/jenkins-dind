@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
 
@@ -10,17 +10,6 @@ services:
         volumes:
             - ./vols-rw/jenkins_home:/var/jenkins_home
             - ./vols-rw/var/lib/docker:/var/lib/docker
-
-    node-ubuntu:
-        build:
-            context: ./services/jenkins-node-ubuntu
-            dockerfile: Dockerfile
-        volumes:
-            - ./vols-rw/workspace:/workspace
-            - ./vols-rw/var/run:/var/run
-        depends_on:
-            - jenkins
-            - dind
 
     dind:
         image: docker:18.04.0-ce-dind
