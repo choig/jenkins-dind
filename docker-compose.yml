@@ -3,7 +3,7 @@ version: '3.4'
 services:
 
     jenkins:
-        image: jenkins/jenkins:lts-alpine
+        image: jenkins/jenkins:${JENKINS_VERSION:-lts-alpine}
         ports:
             - 8080:8080
             - 50000:50000
@@ -12,7 +12,7 @@ services:
             - ./vols-rw/var/lib/docker:/var/lib/docker
 
     dind:
-        image: docker:18.04.0-ce-dind
+        image: docker:${DOCKER_VERSION:-18.04.0-ce-dind}
         privileged: true
         volumes:
             - ./vols-rw/workspace:/workspace

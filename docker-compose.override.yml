@@ -3,4 +3,4 @@ version: '3.4'
 services:
 
     dind:
-        image: docker:19-dind
+        image: docker:${DOCKER_VERSION:-19-dind-rootless}
